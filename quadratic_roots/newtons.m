@@ -1,6 +1,8 @@
 function [x0, x1] = newtons(a, b, c)
-    % Finds root of a polynomial
-    % Uses Newton's method,
+    % Finds root of a quadratic using quadratic equation
+    % Considering two forms of the quadratic formula
+    % Inaccuracies occur due to +- of same sign values and floating point numbers
+    
     % @param f A function, easiest to pass an anonymous function
     %   e.g. newtons(@(x)x^2, ...)
     % @param x0 The inital start value to begin root search
