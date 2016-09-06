@@ -1,4 +1,4 @@
-function [x] = newtons(f, x0)
+function [x0, x1] = newtons(a, b, c)
     % Finds root of a polynomial
     % Uses Newton's method,
     % @param f A function, easiest to pass an anonymous function
@@ -6,16 +6,11 @@ function [x] = newtons(f, x0)
     % @param x0 The inital start value to begin root search
     % @param n # of iterations
     % @return x Calculated x root value    
-    n = 0;
-    while abs(f(x0)) > 1.0e-13
-            x1 = x0 / 2 + 1 / x0;
-            
-            n = n + 1;
-            % error(n) = abs(x1 - sqrt(2));
-            
-            % Matlab print statement sprintf
-            x0 = x1;
+    if (b >= 0) 
+        x0 = (-b - sqrt(b* b-4*a*c)) / 2*a;
+        x1 = 2*c/(-b-sqrt(b*b-4*a*c));
+    else
+        x0 = 2*c/(-b+sqrt(b*b-4*a*c));
+        x1 = (-b+sqrt(b*b-4*a*c))/2*a;
     end
-    
-    x = x0;
 end
